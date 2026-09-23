@@ -1,0 +1,81 @@
+---
+name: effect-state
+description: "Use when designing fiber-safe mutable state with Ref, SynchronizedRef, SubscriptionRef, ScopedRef, MutableRef, transactional Tx modules, or mutable collections."
+---
+
+# Effect state and atomic updates
+
+Use Ref for shared state in an Effect program. Use synchronized and
+subscription variants when updates are effectful or consumers need change
+notifications. This skill also covers MutableRef, RcRef/RcMap, mutable hash
+collections, and the v4 transactional TxChunk, TxRef, TxQueue, and related
+modules.
+
+## Pick the smallest state primitive
+
+- Ref is the default for atomic pure transitions.
+- SynchronizedRef serializes transitions that themselves run Effects.
+- SubscriptionRef keeps a current value and exposes changes as a Stream.
+- ScopedRef owns a replaceable resource and finalizes old values.
+- MutableRef and mutable collections belong at a controlled synchronous
+  boundary; they do not automatically provide fiber-level atomicity.
+- Tx modules are specialized v4 additions. Use them only when transaction
+  semantics are a hard requirement, lock the Effect version, and verify the
+  installed declarations before depending on them.
+
+## Keep invariants in one atomic transition
+
+```ts
+import { Effect, Ref } from "effect"
+
+const program = Effect.gen(function* () {
+  const balance = yield* Ref.make(100)
+  const withdraw = (amount: number) =>
+    Ref.modify(balance, (current) =>
+      current >= amount
+        ? [{ ok: true as const }, current - amount]
+        : [{ ok: false as const }, current]
+    )
+
+  const result = yield* withdraw(30)
+  return { result, remaining: yield* Ref.get(balance) }
+})
+```
+
+Do not implement read-then-write as two separate Effects when another fiber
+could interleave between them. Ref.modify should return both the decision and
+the next state in one atomic operation.
+
+## Reactive state
+
+Use SubscriptionRef when a UI, cache invalidator, or observer needs both the
+latest value and a stream of updates. Define whether duplicate values should
+be emitted and what happens when a subscriber is slow. For a replaceable
+resource, keep the ScopedRef in the same Scope as the resource owner.
+
+## Review checklist
+
+- Is the state owned by a Layer or Scope rather than a process-global variable?
+- Is every invariant updated atomically?
+- Is the value immutable at the boundary, or can callers mutate it behind the
+  Ref?
+- Are snapshots and updates tested under concurrent fibers?
+- Does shutdown interrupt subscribers and release replaceable resources?
+
+## Common mistakes
+
+- Using a mutable JavaScript object inside a Ref and mutating it in place.
+- Assuming Ref serializes an effectful transition; use SynchronizedRef when it
+  must suspend.
+- Broadcasting every internal state change when subscribers only need a
+  debounced or derived view.
+- Choosing a Tx module for ordinary state and locking the application to a
+  newly added API without a version policy.
+
+## References
+
+- [Ref API](https://effect.website/docs/v4/api/effect/Ref)
+- [SynchronizedRef API](https://effect.website/docs/v4/api/effect/SynchronizedRef)
+- [SubscriptionRef API](https://effect.website/docs/v4/api/effect/SubscriptionRef)
+- [ScopedRef API](https://effect.website/docs/v4/api/effect/ScopedRef)
+- [Effect documentation](https://effect.website/docs)

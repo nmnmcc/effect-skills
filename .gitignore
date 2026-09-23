@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.devenv*
+.direnv/
+devenv.local.nix
+devenv.local.yaml

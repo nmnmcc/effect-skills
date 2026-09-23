@@ -1,0 +1,77 @@
+---
+name: effect-testing
+description: "Use when testing Effect programs with TestClock, TestConsole, TestSchema, @effect/vitest, deterministic Layers, interruption assertions, or doctest examples."
+---
+
+# Effect testing
+
+Use TestClock for time, TestConsole for captured output, TestSchema for
+schema-focused assertions, and @effect/vitest for integration with Vitest.
+The goal is to test the Effect graph and its boundaries deterministically,
+not to replace every dependency with a mock.
+
+## Test the contract
+
+For each service or workflow, cover:
+
+1. the success value and provided services;
+2. the typed failure and its Cause;
+3. interruption while an Effect is suspended;
+4. resource finalization after success, failure, and interruption;
+5. concurrency and retry bounds where they affect correctness.
+
+Provide test Layers at the boundary. Keep the domain operation identical to
+production and replace the clock, console, filesystem, database, or network
+adapter with a deterministic implementation.
+
+```ts
+import { Effect, Fiber } from "effect"
+import { TestClock } from "effect/testing"
+
+const program = Effect.gen(function* () {
+  yield* Effect.sleep("5 seconds")
+  return "done"
+})
+
+const test = Effect.gen(function* () {
+  const fiber = yield* Effect.forkChild(program)
+  yield* TestClock.adjust("5 seconds")
+  return yield* Fiber.join(fiber)
+})
+
+const result = test.pipe(Effect.provide(TestClock.layer()))
+```
+
+Confirm the exact testing import and assertion helpers for the installed v4
+release candidate. The test should advance TestClock instead of waiting on a
+real timer.
+
+## Vitest integration
+
+Use the @effect/vitest helpers to run an Effect with its required Layer and to
+preserve typed failures in the assertion output. Keep pure collection and
+Schema tests ordinary Vitest tests; reserve Effect test helpers for runtime,
+Scope, concurrency, and service behavior.
+
+TestConsole is useful for asserting structured output without writing to the
+developer terminal. TestSchema should exercise the accepted, rejected, and
+transformed shapes rather than snapshotting an opaque error string.
+
+## Review traps
+
+- Sleeping in real time to test a Schedule or timeout.
+- Asserting only the final value and missing an unclosed resource or child
+  fiber.
+- Reusing a global mutable test Layer across cases.
+- Mocking Effect.runPromise instead of testing the Effect before the host
+  boundary.
+- Treating doctest examples as documentation only; @effect/doctest makes them
+  executable compatibility checks.
+
+## References
+
+- [TestClock API](https://effect.website/docs/v4/api/effect/testing/TestClock)
+- [TestConsole API](https://effect.website/docs/v4/api/effect/testing/TestConsole)
+- [TestSchema API](https://effect.website/docs/v4/api/effect/testing/TestSchema)
+- [@effect/vitest](https://effect.website/docs/v4/api/vitest)
+- [Effect testing guide](https://effect.website/docs)
