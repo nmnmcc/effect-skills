@@ -7,10 +7,26 @@ on:
 jobs:
   skills:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        shell: devenv shell -- bash -e {0}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: cachix/install-nix-action@v31
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
         with:
-          python-version: "3.11"
-      - name: Validate skill packaging
-        run: python scripts/validate-skills.py
+          use-gha-cache: enabled
+          use-flakehub: disabled
+      - uses: cachix/cachix-action@v16
+        with:
+          name: devenv
+      - name: Install devenv.sh
+        shell: bash
+        run: nix profile add nixpkgs#devenv
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Run the test suite
+        run: npm test
