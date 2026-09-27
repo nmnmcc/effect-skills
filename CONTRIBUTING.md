@@ -1,34 +1,45 @@
 # Contributing
 
-Enter the pinned development environment before making changes:
+Use the published `effect@4.0.0-rc.117` package and its pinned
+[source policy](docs/version-policy.md) when changing an example. Compare
+both the installed export map and declarations before naming a symbol;
+`main` may contain unreleased import paths. Keep any added `@effect/*`
+integrations on the same exact RC version in `package.json` and the lockfile.
+
+## Skill design
+
+One skill should answer one development decision. A frontmatter description
+must say which task triggers it, not enumerate an entire package. Explain
+the neighboring module's responsibility, where data/errors/resources pass
+between them, the v3/v4 gate, and any unstable API boundary. Link to a
+specific API page and to source at the release tag. Keep the skill usable
+when it alone is installed: local references must remain inside its folder.
+
+Every skill contains at least one standalone `ts` or `tsx` example. All such
+fences are independently typechecked against rc.117; avoid fragment-only
+imports or implicit context from a previous fence. Call a snippet
+"typechecked" unless a runtime test actually exercises it. Add a scoped
+integration test for cross-module behavior rather than implying that a type
+check proves network, persistence, or cleanup behavior.
+
+## Checks
 
 ```sh
-direnv allow
-devenv test
+devenv shell -- npm ci
+devenv shell -- npm test
+devenv shell -- python3 scripts/validate-skills.py --external
 ```
 
-`devenv shell` is the manual alternative when direnv is not enabled.
+`npm test` runs packaging and local-link validation, compiles every skill
+example, and exercises the real HTTP/SQL example. The external check follows
+official documentation and pinned-source links and needs network access.
+Run the [Agent Skills reference validator](https://agentskills.io/specification.md)
+against each skill when available. The pinned `skills` CLI is exercised in
+disposable projects by the repository test:
 
-Keep one skill per related area of Effect, not one skill per exported module.
-These are hand-written instructions for agent decisions, not a generated API
-catalogue.
+```sh
+devenv shell -- npm run check:install
+```
 
-When changing a skill:
-
-1. Check the project's pinned Effect version and the corresponding source
-   before recommending an import or example. Document v4-only or unstable
-   behavior explicitly.
-2. Make the frontmatter description a short, specific trigger: what the skill
-   helps with and when it applies. The name must match the directory.
-3. Give the agent useful choices and boundaries (errors, resources,
-   cancellation, compatibility). Link official API/source pages for details
-   that might change.
-4. Verify executable examples against the version they claim to support.
-   Clearly label conceptual snippets that cannot stand alone.
-5. Run python3 scripts/validate-skills.py and the bundled Agent Skills
-   validator if available. Review the result by hand: structural validation
-   alone does not prove guidance is correct.
-
-Use skills/<area>/SKILL.md for the entrypoint. Put substantial guidance needed
-only by a subset of requests in references/ and link it from the entrypoint;
-avoid copying the upstream manual.
+The check covers discovery, single- and multiple-skill installation, and
+installed local references without touching the developer's agent setup.

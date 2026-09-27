@@ -1,14 +1,15 @@
 ---
 name: effect-encoding
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
 description: "Use when encoding or decoding bytes and text, handling Base64, Hex, YAML, TOML, SSE, NDJSON, cryptography, or JSON patch boundaries in Effect."
 ---
 
 # Effect encoding and cryptographic boundaries
 
-Use the effect/encoding modules for explicit wire formats: Base64,
-Base64Url, Hex, Ini, Ndjson, SchemaBinary, Sse, Toml, and Yaml. Pair them with
-Crypto, JsonPatch, and JsonPointer when an encoded representation is signed,
-patched, or transported.
+Use the stable `Encoding` module for Base64, Base64Url, and Hex. The
+`effect/unstable/encoding` modules add Ini, Ndjson, SchemaBinary, Sse, Toml,
+and Yaml. Pair them with Crypto or JsonPatch only when signing or patching is
+part of the wire protocol.
 
 ## Make the wire format explicit
 
@@ -18,18 +19,16 @@ set. A decoder should return a typed error rather than silently replacing
 invalid bytes.
 
 ```ts
-import { Effect } from "effect"
-import * as Base64Url from "effect/encoding/Base64Url"
+import { Effect, Encoding } from "effect"
 
 const decodeToken = (token: string) =>
-  Effect.fromResult(Base64Url.decode(token)).pipe(
+  Effect.fromResult(Encoding.decodeBase64Url(token)).pipe(
     Effect.mapError((cause) => ({ _tag: "InvalidToken" as const, cause }))
   )
 ```
 
-Read the installed v4 declarations for the exact return shape: some encoding
-helpers are pure and some are represented as Effect failures. Keep that
-difference visible at the boundary.
+`decodeBase64Url` returns a `Result` in rc.117; `Effect.fromResult` raises its
+typed `EncodingError` in an Effect before mapping it to the domain error.
 
 ## Serialization and streaming
 
@@ -56,7 +55,8 @@ version. Encoding is not encryption and Base64 is not a security boundary.
 
 ## References
 
-- [Effect encoding entrypoint](https://effect.website/docs/v4/api/effect)
+- [Encoding API](https://effect.website/docs/v4/api/effect/Encoding)
+- [Pinned Encoding source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Encoding.ts)
 - [JsonPatch API](https://effect.website/docs/v4/api/effect/JsonPatch)
 - [Crypto API](https://effect.website/docs/v4/api/effect/Crypto)
-- [Effect source](https://github.com/Effect-TS/effect/tree/main/packages/effect/src/encoding)
+- [Effect source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/encoding)

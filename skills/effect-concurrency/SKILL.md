@@ -1,5 +1,6 @@
 ---
 name: effect-concurrency
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
 description: "Use when coordinating fibers, queues, pub-sub, deferred results, semaphores, pools, fiber sets, or interruption-safe background work in Effect."
 ---
 
@@ -93,3 +94,4 @@ unobserved.
 - [PubSub API](https://effect.website/docs/v4/api/effect/PubSub)
 - [Semaphore API](https://effect.website/docs/v4/api/effect/Semaphore)
 - [Effect documentation](https://effect.website/docs)
+- [Pinned Fiber source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Fiber.ts)

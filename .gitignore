@@ -5,3 +5,5 @@ __pycache__/
 .direnv/
 devenv.local.nix
 devenv.local.yaml
+node_modules/
+.cache/

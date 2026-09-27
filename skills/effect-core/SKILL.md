@@ -1,6 +1,7 @@
 ---
 name: effect-core
-description: "Use when designing or reviewing Effect programs: lazy typed effects, error channels, interruption, defects, fibers, execution boundaries, and v3-to-v4 migration."
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+description: "Use when deciding where an Effect runs or how typed failures, defects, and interruption propagate; also for core v3-to-v4 migration decisions."
 ---
 
 # Effect core runtime
@@ -11,9 +12,9 @@ ExecutionPlan, Effectable, Function, and the run boundary.
 
 ## Version gate
 
-Read the project package.json and lockfile before giving code. The upstream
-main branch currently documents v4 as a release candidate (effect@rc);
-npm install effect may still select v3. Do not combine v3-only examples such
+Read the project package.json and lockfile before giving code. These examples
+target the published `effect@4.0.0-rc.117`; npm's `latest` still selects v3.
+Do not combine v3-only examples such
 as Either, STM, or FiberRef with v4 code without an explicit migration.
 
 ## The model to preserve
@@ -47,7 +48,10 @@ import { Effect, Schedule } from "effect"
 
 type NotFound = { readonly _tag: "NotFound"; readonly id: string }
 
-const loadUser = (id: string) =>
+const loadUser = (id: string): Effect.Effect<{
+  readonly id: string
+  readonly name: string
+}, NotFound> =>
   id === "missing"
     ? Effect.fail<NotFound>({ _tag: "NotFound", id })
     : Effect.succeed({ id, name: "Ada" })
@@ -104,5 +108,5 @@ or data decoding.
 - [Effect API](https://effect.website/docs/v4/api/effect/Effect)
 - [Cause API](https://effect.website/docs/v4/api/effect/Cause)
 - [Exit API](https://effect.website/docs/v4/api/effect/Exit)
-- [Effect source](https://github.com/Effect-TS/effect/blob/main/packages/effect/src/Effect.ts)
+- [Effect source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Effect.ts)
 - [Effect v4 releases](https://github.com/Effect-TS/effect/releases)

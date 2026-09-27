@@ -1,6 +1,7 @@
 ---
 name: effect-time
-description: "Use when implementing retries, polling, cron jobs, timeouts, time zones, clocks, scheduling, or deterministic time tests with Schedule, Cron, Duration, DateTime, Clock, Scheduler, and Random."
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+description: "Use when choosing retry or repeat schedules, polling, timeouts, cron jobs, time zones, and clock behavior in Effect."
 ---
 
 # Effect time and scheduling
@@ -68,3 +69,4 @@ when a test needs stable jitter or identifiers.
 - [Duration API](https://effect.website/docs/v4/api/effect/Duration)
 - [DateTime API](https://effect.website/docs/v4/api/effect/DateTime)
 - [Clock API](https://effect.website/docs/v4/api/effect/Clock)
+- [Pinned Schedule source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Schedule.ts)

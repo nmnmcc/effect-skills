@@ -1,6 +1,7 @@
 ---
 name: effect-data
-description: "Use when choosing Effect data types and pure collection combinators: Option, Data, Array, HashMap, Struct, Record, Order, Predicate, Match, Brand, and related modules."
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+description: "Use when choosing a pure representation for absence, failure values, variants, equality, or immutable collections without running an Effect."
 ---
 
 # Effect data and pure transformations
@@ -32,7 +33,7 @@ import { Number as EffectNumber, Option, Result } from "effect"
 declare const maybeUser: { readonly name: string } | null | undefined
 declare const text: string
 
-const label = Option.fromNullable(maybeUser).pipe(
+const label = Option.fromNullishOr(maybeUser).pipe(
   Option.map((user) => user.name),
   Option.getOrElse(() => "anonymous")
 )
@@ -43,7 +44,7 @@ const parsed = Result.fromOption(
 )
 ```
 
-Convert null and undefined once at the boundary. Never read a value from an
+Convert null and undefined once at the boundary with `fromNullishOr`. Never read a value from an
 Option or Result before matching it. Native `Number.parseInt` returns `NaN` when
 there is no numeric prefix, accepts partial numeric prefixes, and does not
 throw, so it is not a validation boundary for `Result.try`; use `Number.parse`
@@ -77,3 +78,4 @@ by callers.
 - [HashMap API](https://effect.website/docs/v4/api/effect/HashMap)
 - [Match API](https://effect.website/docs/v4/api/effect/Match)
 - [Effect documentation](https://effect.website/docs)
+- [Pinned Option source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Option.ts)

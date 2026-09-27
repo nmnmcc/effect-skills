@@ -10,6 +10,7 @@
     pkgs.nodejs_22
     (pkgs.python312.withPackages (pythonPackages: [
       pythonPackages.pyyaml
+      pythonPackages.markdown-it-py
     ]))
   ];
 
@@ -27,6 +28,6 @@
   };
 
   enterTest = ''
-    python scripts/validate-skills.py
+    npm test
   '';
 }

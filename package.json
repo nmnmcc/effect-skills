@@ -1,0 +1,24 @@
+{
+  "name": "effect-skills",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:skills": "python3 scripts/validate-skills.py",
+    "check:validator": "python3 -m unittest discover -s tests -q",
+    "check:snippets": "node scripts/check-snippets.mjs",
+    "check:install": "node scripts/check-install.mjs",
+    "test:example": "tsx --test examples/user-api.test.ts",
+    "test": "npm run check:skills && npm run check:validator && npm run check:snippets && npm run test:example && npm run check:install"
+  },
+  "devDependencies": {
+    "@effect/ai-openai": "4.0.0-rc.117",
+    "@effect/platform-node": "4.0.0-rc.117",
+    "@effect/sql-pglite": "4.0.0-rc.117",
+    "@types/node": "26.6.2",
+    "effect": "4.0.0-rc.117",
+    "markdown-it": "15.0.2",
+    "skills": "1.7.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

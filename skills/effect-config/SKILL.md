@@ -1,5 +1,6 @@
 ---
 name: effect-config
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
 description: "Use when loading typed application configuration, environment variables, files, secrets, defaults, or custom providers with Config and ConfigProvider."
 ---
 
@@ -62,3 +63,4 @@ secret values separately.
 - [Config API](https://effect.website/docs/v4/api/effect/Config)
 - [ConfigProvider API](https://effect.website/docs/v4/api/effect/ConfigProvider)
 - [Effect configuration guide](https://effect.website/docs)
+- [Pinned Config source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Config.ts)

@@ -1,6 +1,7 @@
 ---
 name: effect-platform
-description: "Use when integrating Effect with Node, Bun, Deno, browsers, files, paths, processes, sockets, workers, standard IO, or platform-specific HTTP services."
+compatibility: "Examples target effect@4.0.0-rc.117; align @effect/* packages. Effect v3 requires migration."
+description: "Use when choosing a Node, Bun, Deno, or browser adapter for filesystem, process, network, worker, or runtime lifecycle services."
 ---
 
 # Effect platform integration
@@ -65,4 +66,4 @@ Effect service graph across a worker boundary.
 - [@effect/platform-node](https://effect.website/docs/v4/api/platform-node)
 - [@effect/platform-browser](https://effect.website/docs/v4/api/platform-browser)
 - [FileSystem API](https://effect.website/docs/v4/api/effect/FileSystem)
-- [Effect platform source](https://github.com/Effect-TS/effect/tree/main/packages/platform)
+- [Effect platform source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/platform)

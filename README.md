@@ -1,98 +1,88 @@
 # Effect Skills
 
-Hand-written [Agent Skills](https://agentskills.io/specification) for building
-with [Effect](https://github.com/Effect-TS/effect). Each skill covers one
-related area and teaches the decisions that matter there: which abstraction
-fits, how to compose it, and where errors, resources, and version boundaries
-belong. This is an independent repository, not an official Effect release.
+Independently installable [Agent Skills](https://agentskills.io/specification) for
+Effect developers. Each skill is organized around a development decision: when
+to choose a module, what the neighboring modules own, and where errors and
+resources cross the boundary. This is a community repository, not an official
+Effect release.
 
-The layout follows [Cloudflare's skills repository](https://github.com/cloudflare/skills):
-each skill lives in its own skills/<name>/SKILL.md directory and can be
-installed separately with the [skills.sh CLI](https://www.skills.sh/docs/cli).
+## Version
 
-## Development environment
+The code targets **`effect@4.0.0-rc.117`**, the published v4 release candidate
+at upstream commit `14a3f140095fdebbff9162944fe7d4ea83e054e6`. Its
+`@effect/*` integrations are pinned to the same version. npm `latest` still
+resolves to v3; do not apply these imports to a v3 project without an explicit
+migration. See the [version and source policy](docs/version-policy.md) for
+published export paths and compatibility limits.
 
-The repository includes a reproducible [devenv](https://devenv.sh/) shell and
-[direnv](https://direnv.net/) integration. The shell provides Node.js 22 with
-npm/npx, Python 3.12 with PyYAML, Git, and Curl.
+## Install the skills you need
 
-After installing Nix, devenv, and direnv:
-
-```sh
-# Enable the hook once per shell (Bash example).
-eval "$(direnv hook bash)"
-direnv allow
-devenv test
-```
-
-Use the equivalent `direnv hook zsh` or `direnv hook fish` command for other
-shells. `devenv shell` remains available when you do not want automatic
-Direnv loading.
-
-Without direnv, enter the same environment with `devenv shell`. The
-`check:skills` task runs the repository packaging validator.
-
-## Install
-
-From this directory, with Node.js and npm installed:
+With Node.js and npm, discover and install individual skills from GitHub:
 
 ```sh
-npx skills add . --list
-npx skills add . --skill effect-core
-npx skills add . --skill effect-schema --skill effect-http
+npx skills add nmnmcc/effect-skills --list
+npx skills add nmnmcc/effect-skills --skill effect-core --agent codex -y
+npx skills add nmnmcc/effect-skills --skill effect-schema --skill effect-http-api --agent codex -y
 ```
 
-After publishing this directory to GitHub, replace <owner>/effect-skills below
-with the actual repository path:
+From a checkout, substitute `.` for `nmnmcc/effect-skills`. The installer
+places only the selected skill directories in the agent's project; a skill's
+instructions and references remain usable without installing its neighbors.
+Installing a skill does **not** install Effect into the consuming application.
+Pin that application's `effect` and any `@effect/*` packages separately.
+
+## Choose a skill
+
+| Task | Skill |
+| --- | --- |
+| Execution and typed failures | [effect-core](skills/effect-core/SKILL.md) |
+| Service graphs and resource lifetime | [effect-services](skills/effect-services/SKILL.md) |
+| Fibers, queues, and coordination | [effect-concurrency](skills/effect-concurrency/SKILL.md) |
+| Atomic in-process state | [effect-state](skills/effect-state/SKILL.md) |
+| Incremental streams and backpressure | [effect-streams](skills/effect-streams/SKILL.md) |
+| Retries, scheduling, and clocks | [effect-time](skills/effect-time/SKILL.md) |
+| Pure data, absence, and collections | [effect-data](skills/effect-data/SKILL.md) |
+| Boundary validation and codecs | [effect-schema](skills/effect-schema/SKILL.md) |
+| Deployment configuration | [effect-config](skills/effect-config/SKILL.md) |
+| Text, bytes, and wire formats | [effect-encoding](skills/effect-encoding/SKILL.md) |
+| Node/browser adapters and platform I/O | [effect-platform](skills/effect-platform/SKILL.md) |
+| HTTP transport and clients | [effect-http](skills/effect-http/SKILL.md) |
+| Schema-defined HTTP endpoints | [effect-http-api](skills/effect-http-api/SKILL.md) |
+| Remote procedure protocols | [effect-rpc](skills/effect-rpc/SKILL.md) |
+| Relational persistence and transactions | [effect-sql](skills/effect-sql/SKILL.md) |
+| Key-value stores, persisted queues, and caches | [effect-persistence](skills/effect-persistence/SKILL.md) |
+| Restart-surviving executions | [effect-workflow](skills/effect-workflow/SKILL.md) |
+| Sharded entity ownership | [effect-cluster](skills/effect-cluster/SKILL.md) |
+| Event journals and replay | [effect-eventlog](skills/effect-eventlog/SKILL.md) |
+| Logs, metrics, and tracing | [effect-observability](skills/effect-observability/SKILL.md) |
+| Typed command-line programs | [effect-cli](skills/effect-cli/SKILL.md) |
+| AI models, tools, and providers | [effect-ai](skills/effect-ai/SKILL.md) |
+| Deterministic Effect tests | [effect-testing](skills/effect-testing/SKILL.md) |
+| UI atoms and bindings | [effect-reactivity](skills/effect-reactivity/SKILL.md) |
+
+The [category and composition index](docs/category-map.md) shows which skills
+to combine for HTTP APIs, validation, service dependencies, and persistence.
+A [complete user API example](examples/user-api.ts) connects Schema,
+HttpApi, Context/Layer, a Node HTTP server, and file-backed PGlite. Its
+[integration test](examples/user-api.test.ts) exercises actual HTTP requests
+and a database restart.
+
+## Verify the repository
+
+The included [devenv](https://devenv.sh/) shell supplies Node.js 22, npm,
+Python, PyYAML, and a Markdown parser. After installing devenv:
 
 ```sh
-npx skills add <owner>/effect-skills --list
-npx skills add <owner>/effect-skills --skill effect-core
+devenv shell -- npm ci
+devenv shell -- npm test
+devenv shell -- python3 scripts/validate-skills.py --external
 ```
 
-An agent can also select a skill automatically when its description matches
-the task. Install only the areas relevant to the project.
+`npm test` validates packaging and local references, typechecks **every**
+TypeScript code fence in the skills against the pinned release, runs the
+HTTP/database integration test, and checks isolated single/multiple installs.
+`--external` fetches the linked official
+sources and API pages; it requires network access. See [CONTRIBUTING.md](CONTRIBUTING.md)
+for update and independent-install checks.
 
-## Skills
-
-| Area | Skill | Use for |
-| --- | --- | --- |
-| Execution | [effect-core](skills/effect-core/SKILL.md) | Lazy effects, typed failures, Causes, runtimes |
-| Dependencies | [effect-services](skills/effect-services/SKILL.md) | Context, Layer, Scope, resource ownership |
-| Concurrency | [effect-concurrency](skills/effect-concurrency/SKILL.md) | Fibers, queues, pub-sub, semaphores |
-| State | [effect-state](skills/effect-state/SKILL.md) | Ref variants, atomic updates, reactive state |
-| Pipelines | [effect-streams](skills/effect-streams/SKILL.md) | Stream, Sink, Channel, backpressure |
-| Time | [effect-time](skills/effect-time/SKILL.md) | Schedule, Cron, Duration, Clock |
-| Data | [effect-data](skills/effect-data/SKILL.md) | Option, Result, collections, equality |
-| Validation | [effect-schema](skills/effect-schema/SKILL.md) | Schema, decoding, transformations |
-| Configuration | [effect-config](skills/effect-config/SKILL.md) | Config and ConfigProvider |
-| Encoding | [effect-encoding](skills/effect-encoding/SKILL.md) | Wire formats, codecs, Crypto |
-| Platform | [effect-platform](skills/effect-platform/SKILL.md) | Runtime adapters, files, processes, workers |
-| HTTP | [effect-http](skills/effect-http/SKILL.md) | HTTP clients, servers, transport |
-| Typed APIs | [effect-http-api](skills/effect-http-api/SKILL.md) | HTTP endpoint contracts and OpenAPI |
-| RPC | [effect-rpc](skills/effect-rpc/SKILL.md) | RPC contracts and sockets |
-| SQL | [effect-sql](skills/effect-sql/SKILL.md) | SQL clients, transactions, migrations |
-| Observability | [effect-observability](skills/effect-observability/SKILL.md) | Logs, metrics, tracing, exporters |
-| CLI | [effect-cli-tools](skills/effect-cli-tools/SKILL.md) | Commands, prompts, code generation |
-| AI | [effect-ai](skills/effect-ai/SKILL.md) | Language models, tools, MCP, providers |
-| Durable systems | [effect-durable-systems](skills/effect-durable-systems/SKILL.md) | Workflows, cluster, persistence, event log |
-| Testing | [effect-testing](skills/effect-testing/SKILL.md) | TestClock, deterministic Layers, Vitest |
-| Reactivity | [effect-reactivity](skills/effect-reactivity/SKILL.md) | Atoms and UI bindings |
-
-## Version policy
-
-These skills use Effect's v4 release-candidate source and documentation as
-their primary reference, inspected at 4.0.0-rc.117 (upstream commit
-0cbb45792b59e9ea00e19001a019e790d53407e6). Check the consuming project's
-lockfile before applying an example: npm's default tag may still resolve to
-v3, and unstable v4 entrypoints can change. Where a skill covers an unstable
-area, it states the compatibility boundary explicitly.
-
-## Contributing
-
-The files are maintained by hand. See CONTRIBUTING.md and run
-python3 scripts/validate-skills.py for packaging checks. That check does not
-establish that a TypeScript snippet is valid for every Effect version; confirm
-it against the installed declarations or upstream source.
-
-Licensed under MIT.
+Licensed under [MIT](LICENSE).

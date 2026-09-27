@@ -1,6 +1,7 @@
 ---
 name: effect-state
-description: "Use when designing fiber-safe mutable state with Ref, SynchronizedRef, SubscriptionRef, ScopedRef, MutableRef, transactional Tx modules, or mutable collections."
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+description: "Use when selecting atomic in-process state, effectful updates, subscriptions, or replaceable scoped state for concurrent Effect programs."
 ---
 
 # Effect state and atomic updates
@@ -31,7 +32,7 @@ import { Effect, Ref } from "effect"
 const program = Effect.gen(function* () {
   const balance = yield* Ref.make(100)
   const withdraw = (amount: number) =>
-    Ref.modify(balance, (current) =>
+    Ref.modify(balance, (current): readonly [{ readonly ok: boolean }, number] =>
       current >= amount
         ? [{ ok: true as const }, current - amount]
         : [{ ok: false as const }, current]
@@ -79,3 +80,4 @@ resource, keep the ScopedRef in the same Scope as the resource owner.
 - [SubscriptionRef API](https://effect.website/docs/v4/api/effect/SubscriptionRef)
 - [ScopedRef API](https://effect.website/docs/v4/api/effect/ScopedRef)
 - [Effect documentation](https://effect.website/docs)
+- [Pinned Ref source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Ref.ts)

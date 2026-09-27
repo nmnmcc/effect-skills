@@ -1,11 +1,12 @@
 ---
 name: effect-sql
-description: "Use when implementing typed SQL access, transactions, migrations, streaming queries, or database-specific Layers with effect/sql and @effect/sql-* adapters."
+compatibility: "Examples target effect@4.0.0-rc.117; align @effect/* packages. Effect v3 requires migration."
+description: "Use when selecting an Effect SQL adapter or implementing parameterized queries, transactions, migrations, and schema-checked database rows."
 ---
 
 # Effect SQL
 
-Use effect/sql for the database-independent contract and choose an adapter
+Use effect/unstable/sql for the database-independent contract and choose an adapter
 package such as @effect/sql-pg, @effect/sql-mysql2, @effect/sql-mssql,
 @effect/sql-sqlite-node, @effect/sql-sqlite-bun, @effect/sql-sqlite-wasm,
 @effect/sql-sqlite-do, @effect/sql-sqlite-react-native, @effect/sql-libsql,
@@ -22,7 +23,7 @@ connection creation.
 
 ```ts
 import { Effect, Schema } from "effect"
-import { SqlClient, SqlSchema } from "effect/sql"
+import { SqlClient, SqlSchema } from "effect/unstable/sql"
 
 const UserId = Schema.Struct({ id: Schema.String })
 const User = Schema.Struct({ id: Schema.String, name: Schema.String })
@@ -66,6 +67,6 @@ versions monotonic and test rollback or forward-only policy before production.
 ## References
 
 - [Effect SQL modules](https://effect.website/docs/v4/api/effect)
-- [Effect SQL source](https://github.com/Effect-TS/effect/tree/main/packages/effect/src/sql)
-- [SQL packages](https://github.com/Effect-TS/effect/tree/main/packages/sql)
+- [Effect SQL source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/sql)
+- [SQL packages](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/sql)
 - [Effect Schema API](https://effect.website/docs/v4/api/effect/Schema)

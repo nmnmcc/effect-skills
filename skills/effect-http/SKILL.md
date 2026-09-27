@@ -1,11 +1,12 @@
 ---
 name: effect-http
-description: "Use when building or reviewing Effect HTTP clients and servers, middleware, headers, bodies, cookies, URL routing, multipart, fetch adapters, or HTTP resource lifecycles."
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+description: "Use when implementing transport-level HTTP clients, servers, middleware, request bodies, routing, or connection lifecycles in Effect."
 ---
 
 # Effect HTTP
 
-Use the effect/http entrypoint for transport-level HTTP work. It covers
+Use the effect/unstable/http entrypoint for transport-level HTTP work. It covers
 HttpClient, HttpClientRequest/Response, HttpServer, HttpServerRequest/Response,
 HttpRouter, HttpMiddleware, HttpBody, Headers, Cookies, Url, Mime, Multipart,
 FetchHttpClient, status and method types, and trace context.
@@ -18,7 +19,7 @@ and keep domain Effects independent of Fetch or Node APIs.
 
 ```ts
 import { Effect, Schema } from "effect"
-import { HttpClient, HttpClientRequest } from "effect/http"
+import { HttpClient, HttpClientRequest } from "effect/unstable/http"
 
 const ResponseBody = Schema.Struct({ id: Schema.String })
 
@@ -71,4 +72,4 @@ context intentionally.
 - [Effect HTTP modules](https://effect.website/docs/v4/api/effect)
 - [HttpClient API](https://effect.website/docs/v4/api/effect/unstable/http/HttpClient)
 - [HttpServer API](https://effect.website/docs/v4/api/effect/unstable/http/HttpServer)
-- [Effect HTTP source](https://github.com/Effect-TS/effect/tree/main/packages/effect/src/http)
+- [Effect HTTP source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/http)

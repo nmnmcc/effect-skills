@@ -1,6 +1,7 @@
 ---
 name: effect-schema
-description: "Use when validating unknown input or designing codecs with Schema, SchemaAST, SchemaParser, SchemaIssue, SchemaTransformation, JsonSchema, StandardSchema, or schema compiler modules."
+compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+description: "Use when validating untrusted values, modeling structured domain variants, or defining reversible wire/domain codecs with Effect Schema."
 ---
 
 # Effect Schema
@@ -76,3 +77,4 @@ transformation can be represented in JSON Schema.
 - [SchemaTransformation API](https://effect.website/docs/v4/api/effect/SchemaTransformation)
 - [JsonSchema API](https://effect.website/docs/v4/api/effect/JsonSchema)
 - [Effect Schema guide](https://effect.website/docs)
+- [Pinned Schema source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Schema.ts)
