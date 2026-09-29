@@ -3,7 +3,7 @@
 Select a skill by the decision being made, not simply by an imported symbol.
 Every skill stands alone after installation; these combinations are optional
 paths through related responsibilities. All module paths below are for the
-[pinned rc.117 release](version-policy.md).
+[pinned rc.118 release](version-policy.md).
 
 | Decision | Primary skill | Adjacent responsibility |
 | --- | --- | --- |

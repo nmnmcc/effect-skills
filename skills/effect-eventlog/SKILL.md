@@ -1,21 +1,21 @@
 ---
 name: effect-eventlog
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when recording append-only domain events for replay, registered handlers, conflict handling, or remote replication with Effect EventLog."
 ---
 
 # Effect event log
 
-Use `effect/unstable/eventlog` for append-only facts with registered handlers
+Use `effect/eventlog` for append-only facts with registered handlers
 and a journal. A SQL table of current records is not itself an event log;
 SQL owns queries and transactions, while EventLog owns event identity,
-replay, and replication. These v4 rc.117 modules are unstable.
+replay, and replication. These v4 rc.118 modules are unstable.
 
 ## Schema, journal, and handlers
 
 ```ts
 import { Effect, Layer, Schema } from "effect"
-import { EventGroup, EventJournal, EventLog, EventLogEncryption } from "effect/unstable/eventlog"
+import { EventGroup, EventJournal, EventLog, EventLogEncryption } from "effect/eventlog"
 
 const Users = EventGroup.empty.add({
   tag: "UserCreated",
@@ -53,5 +53,5 @@ state, not the domain event stream.
 
 ## Sources
 
-- [EventLog API](https://effect.website/docs/v4/api/effect/unstable/eventlog/EventLog)
-- [Pinned EventLog source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/unstable/eventlog/EventLog.ts)
+- [EventLog API](https://effect.website/docs/v4/api/effect/eventlog/EventLog)
+- [Pinned EventLog source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/eventlog/EventLog.ts)

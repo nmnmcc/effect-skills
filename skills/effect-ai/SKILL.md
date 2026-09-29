@@ -1,12 +1,12 @@
 ---
 name: effect-ai
-compatibility: "Examples target effect@4.0.0-rc.117; align @effect/* packages. Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
 description: "Use when integrating an AI model or provider with Effect, generating structured output, exposing typed tools, managing chat state, or consuming streamed responses."
 ---
 
 # Effect AI
 
-Use this skill for the schema-first AI runtime in `effect/unstable/ai` and its provider
+Use this skill for the schema-first AI runtime in `effect/ai` and its provider
 packages. It covers these modules and boundaries:
 
 - Core model services: `LanguageModel`, `Model`, `Prompt`, `Response`, `Chat`,
@@ -34,11 +34,11 @@ output as trusted JSON.
 ## Version gate
 
 Read `package.json` and the lockfile before choosing an example. This skill
-targets the published `4.0.0-rc.117` and its `effect/unstable/ai` modules;
+targets the published `4.0.0-rc.118` and its `effect/ai` modules;
 provider layers are unstable. npm `latest` still resolves
 Effect v3 (for example `3.22.x`), where these imports and signatures are not a
 drop-in match. If the project is on v3, use its pinned documentation or make an
-explicit upgrade decision; do not silently mix v4 `effect/unstable/ai` examples into a v3
+explicit upgrade decision; do not silently mix v4 `effect/ai` examples into a v3
 program. Keep `effect` and every `@effect/ai-*` provider on compatible versions.
 
 ## Design workflow
@@ -70,8 +70,8 @@ program. Keep `effect` and every `@effect/ai-*` provider on compatible versions.
 
 ```ts
 import { Config, Effect, Layer, Schema } from "effect"
-import { FetchHttpClient } from "effect/unstable/http"
-import { AiError, LanguageModel } from "effect/unstable/ai"
+import { FetchHttpClient } from "effect/http"
+import { AiError, LanguageModel } from "effect/ai"
 import { OpenAiClient, OpenAiLanguageModel } from "@effect/ai-openai"
 
 const OpenAiClientLayer = OpenAiClient.layerConfig({
@@ -109,7 +109,7 @@ verify the installed provider declaration.
 
 ```ts
 import { Effect, Schema, Stream } from "effect"
-import { LanguageModel, Response, Tool, Toolkit } from "effect/unstable/ai"
+import { LanguageModel, Response, Tool, Toolkit } from "effect/ai"
 
 const Lookup = Tool.make("Lookup", {
   description: "Look up a product by its stable id",
@@ -195,11 +195,11 @@ layer explicit so its credentials and transport requirements remain visible.
 
 ## References
 
-- [Language model API](https://effect.website/docs/v4/api/effect/unstable/ai/LanguageModel)
-- [Chat API](https://effect.website/docs/v4/api/effect/unstable/ai/Chat)
-- [Tool API](https://effect.website/docs/v4/api/effect/unstable/ai/Tool)
-- [Toolkit API](https://effect.website/docs/v4/api/effect/unstable/ai/Toolkit)
+- [Language model API](https://effect.website/docs/v4/api/effect/ai/LanguageModel)
+- [Chat API](https://effect.website/docs/v4/api/effect/ai/Chat)
+- [Tool API](https://effect.website/docs/v4/api/effect/ai/Tool)
+- [Toolkit API](https://effect.website/docs/v4/api/effect/ai/Toolkit)
 - [OpenAI provider](https://effect.website/docs/v4/api/ai-openai)
-- [Effect AI source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/ai)
-- [Pinned LanguageModel source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/unstable/ai/LanguageModel.ts)
-- [AI examples](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/ai-docs/src/71_ai)
+- [Effect AI source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/ai)
+- [Pinned LanguageModel source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/ai/LanguageModel.ts)
+- [AI examples](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/ai-docs/src/71_ai)

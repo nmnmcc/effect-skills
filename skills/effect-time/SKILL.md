@@ -1,6 +1,6 @@
 ---
 name: effect-time
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when choosing retry or repeat schedules, polling, timeouts, cron jobs, time zones, and clock behavior in Effect."
 ---
 
@@ -69,4 +69,4 @@ when a test needs stable jitter or identifiers.
 - [Duration API](https://effect.website/docs/v4/api/effect/Duration)
 - [DateTime API](https://effect.website/docs/v4/api/effect/DateTime)
 - [Clock API](https://effect.website/docs/v4/api/effect/Clock)
-- [Pinned Schedule source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Schedule.ts)
+- [Pinned Schedule source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Schedule.ts)

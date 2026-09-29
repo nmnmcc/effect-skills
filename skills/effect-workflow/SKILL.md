@@ -1,14 +1,14 @@
 ---
 name: effect-workflow
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when an Effect operation must survive restarts or suspension: define durable workflows, activities, timers, signals, queues, replay, and idempotency."
 ---
 
 # Durable workflows
 
-Use `effect/unstable/workflow` when a named execution needs an engine-owned
+Use `effect/workflow` when a named execution needs an engine-owned
 identity and result across process lifetimes. A normal Effect or forked fiber
-does not gain durability from a retry policy. v4 rc.117 workflow APIs are
+does not gain durability from a retry policy. v4 rc.118 workflow APIs are
 unstable; read the installed declarations before upgrading or porting v3.
 
 ## Choose an engine-visible boundary
@@ -23,7 +23,7 @@ unstable; read the installed declarations before upgrading or porting v3.
 
 ```ts
 import { Effect, Schema } from "effect"
-import { Activity, Workflow } from "effect/unstable/workflow"
+import { Activity, Workflow } from "effect/workflow"
 
 const Charge = Activity.make({
   name: "billing.charge",
@@ -56,6 +56,6 @@ than a workflow execution log.
 
 ## Sources
 
-- [Workflow API](https://effect.website/docs/v4/api/effect/unstable/workflow/Workflow)
-- [Activity API](https://effect.website/docs/v4/api/effect/unstable/workflow/Activity)
-- [Pinned Workflow source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/unstable/workflow/Workflow.ts)
+- [Workflow API](https://effect.website/docs/v4/api/effect/workflow/Workflow)
+- [Activity API](https://effect.website/docs/v4/api/effect/workflow/Activity)
+- [Pinned Workflow source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/workflow/Workflow.ts)

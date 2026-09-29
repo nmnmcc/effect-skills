@@ -1,9 +1,9 @@
 import { PgliteClient } from "@effect/sql-pglite"
 import { NodeHttpServer } from "@effect/platform-node"
 import { Context, Effect, Layer, Schema } from "effect"
-import { HttpRouter } from "effect/unstable/http"
-import { HttpApi, HttpApiBuilder, HttpApiEndpoint, HttpApiGroup, HttpApiSchema } from "effect/unstable/httpapi"
-import { SqlClient } from "effect/unstable/sql"
+import { HttpRouter } from "effect/http"
+import { HttpApi, HttpApiBuilder, HttpApiEndpoint, HttpApiGroup, HttpApiSchema } from "effect/http-api"
+import { SqlClient } from "effect/sql"
 import { createServer, type Server } from "node:http"
 
 export const User = Schema.Struct({ id: Schema.String, name: Schema.String })

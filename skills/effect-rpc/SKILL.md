@@ -1,12 +1,12 @@
 ---
 name: effect-rpc
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when defining typed remote procedures and serialization across sockets, workers, or HTTP; for resource-oriented endpoints use HTTP API."
 ---
 
 # Effect RPC and sockets
 
-Use this skill for effect/unstable/rpc and effect/unstable/socket. It covers Rpc, RpcGroup,
+Use this skill for effect/rpc and effect/socket. It covers Rpc, RpcGroup,
 RpcSchema, RpcClient, RpcServer, RpcMiddleware, RpcSerialization,
 RpcWorker, RpcMessage, RpcClientError, RpcTest, Socket, SocketServer, and the
 protocol utilities around them.
@@ -20,7 +20,7 @@ the client and server runtime.
 
 ```ts
 import { Schema } from "effect"
-import { Rpc, RpcGroup } from "effect/unstable/rpc"
+import { Rpc, RpcGroup } from "effect/rpc"
 
 const GetUser = Rpc.make("GetUser", {
   payload: Schema.Struct({ id: Schema.String }),
@@ -65,7 +65,7 @@ traces or provider SDK errors through a public Rpc error schema.
 
 ## References
 
-- [Effect RPC source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/rpc)
+- [Effect RPC source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/rpc)
 - [Rpc API](https://effect.website/docs/v4/api/effect)
-- [Socket source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/socket)
+- [Socket source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/socket)
 - [Effect Schema API](https://effect.website/docs/v4/api/effect/Schema)

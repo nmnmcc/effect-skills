@@ -17,11 +17,12 @@ from markdown_it import MarkdownIt
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
+EFFECT_VERSION = "4.0.0-rc.118"
+EFFECT_TAG = "effect%40" + EFFECT_VERSION
 NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 FIELDS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 LEGACY_IMPORT = re.compile(
-    r"(?<![@/\w])effect/(?:http-api|ai|cli|cluster|encoding|eventlog|http|net|"
-    r"observability|persistence|process|reactivity|rpc|socket|sql|workflow|workers)\b"
+    r"(?<![@/\w])effect/(?:unstable(?:/[a-z-]+)*|httpapi|Encoding|arbitrary(?:/[a-z-]+)*)\b"
 )
 
 
@@ -76,8 +77,8 @@ def check_skill(path: Path) -> list[str]:
     if not body.strip():
         errors.append(f"{path}: empty skill body")
     if LEGACY_IMPORT.search(body):
-        errors.append(f"{path}: uses an import path not exported by effect@4.0.0-rc.117")
-    if "github.com/Effect-TS/effect/" not in body or "effect%404.0.0-rc.117/" not in body:
+        errors.append(f"{path}: uses an import path not exported by {EFFECT_VERSION}")
+    if "github.com/Effect-TS/effect/" not in body or f"{EFFECT_TAG}/" not in body:
         errors.append(f"{path}: missing pinned upstream source link")
     return errors
 

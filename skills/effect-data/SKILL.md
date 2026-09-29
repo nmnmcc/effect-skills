@@ -1,6 +1,6 @@
 ---
 name: effect-data
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when choosing a pure representation for absence, failure values, variants, equality, or immutable collections without running an Effect."
 ---
 
@@ -78,4 +78,4 @@ by callers.
 - [HashMap API](https://effect.website/docs/v4/api/effect/HashMap)
 - [Match API](https://effect.website/docs/v4/api/effect/Match)
 - [Effect documentation](https://effect.website/docs)
-- [Pinned Option source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Option.ts)
+- [Pinned Option source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Option.ts)

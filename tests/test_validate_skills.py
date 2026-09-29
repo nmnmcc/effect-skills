@@ -25,10 +25,10 @@ description: >-
   Use when validating a sample.
 metadata:
   author: example
-compatibility: Effect 4.0.0-rc.117
+compatibility: Effect 4.0.0-rc.118
 ---
 Instructions.
-[Pinned source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Effect.ts)
+[Pinned source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Effect.ts)
 """, encoding="utf-8")
         self.assertEqual(validator.check_skill(self.skill), [])
 
@@ -47,7 +47,16 @@ Instructions.
 name: effect-example
 description: Use when testing.
 ---
-Import `effect/http` here.
+Import `effect/unstable/http` here.
+""", encoding="utf-8")
+        self.assertIn("not exported", " ".join(validator.check_skill(self.skill)))
+
+    def test_renamed_entrypoint_is_rejected(self):
+        self.skill.write_text("""---
+name: effect-example
+description: Use when testing.
+---
+Import `effect/httpapi` here.
 """, encoding="utf-8")
         self.assertIn("not exported", " ".join(validator.check_skill(self.skill)))
 

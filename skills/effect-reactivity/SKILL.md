@@ -1,12 +1,12 @@
 ---
 name: effect-reactivity
-compatibility: "Examples target effect@4.0.0-rc.117; align @effect/* packages. Effect v3 requires migration."
-description: "Use when connecting Effect services and state to reactive atoms, React, Solid, or Vue with effect/unstable/reactivity and @effect/atom-* packages."
+compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
+description: "Use when connecting Effect services and state to reactive atoms, React, Solid, or Vue with effect/reactivity and @effect/atom-* packages."
 ---
 
 # Effect reactivity and UI state
 
-Use effect/unstable/reactivity for Atom, AtomRef, AtomRegistry, AsyncResult,
+Use effect/reactivity for Atom, AtomRef, AtomRegistry, AsyncResult,
 AtomHttpApi, AtomRpc, Hydration, and the @effect/atom-react,
 @effect/atom-solid, and @effect/atom-vue bindings.
 
@@ -19,7 +19,7 @@ core service graph.
 
 ```ts
 import { Effect } from "effect"
-import { Atom, AtomRegistry } from "effect/unstable/reactivity"
+import { Atom, AtomRegistry } from "effect/reactivity"
 
 const userAtom = Atom.make(
   Effect.succeed({ id: "u1", name: "Ada" })
@@ -63,9 +63,9 @@ long-lived registries in a provider Layer, not in module-level state.
 
 ## References
 
-- [Effect reactivity source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/reactivity)
-- [Atom API](https://effect.website/docs/v4/api/effect/unstable/reactivity/Atom)
-- [AtomRegistry API](https://effect.website/docs/v4/api/effect/unstable/reactivity/AtomRegistry)
-- [React bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/atom/react)
-- [Solid bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/atom/solid)
-- [Vue bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/atom/vue)
+- [Effect reactivity source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/reactivity)
+- [Atom API](https://effect.website/docs/v4/api/effect/reactivity/Atom)
+- [AtomRegistry API](https://effect.website/docs/v4/api/effect/reactivity/AtomRegistry)
+- [React bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/atom/react)
+- [Solid bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/atom/solid)
+- [Vue bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/atom/vue)

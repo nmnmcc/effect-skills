@@ -1,6 +1,6 @@
 ---
 name: effect-testing
-compatibility: "Examples target effect@4.0.0-rc.117; align @effect/* packages. Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
 description: "Use when testing Effect behavior with deterministic Layers or clocks, including typed failures, interruption, finalizers, and examples."
 ---
 
@@ -76,4 +76,4 @@ transformed shapes rather than snapshotting an opaque error string.
 - [TestSchema API](https://effect.website/docs/v4/api/effect/testing/TestSchema)
 - [@effect/vitest](https://effect.website/docs/v4/api/vitest)
 - [Effect testing guide](https://effect.website/docs)
-- [Pinned TestClock source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/testing/TestClock.ts)
+- [Pinned TestClock source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/testing/TestClock.ts)

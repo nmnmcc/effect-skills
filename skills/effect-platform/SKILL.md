@@ -1,6 +1,6 @@
 ---
 name: effect-platform
-compatibility: "Examples target effect@4.0.0-rc.117; align @effect/* packages. Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
 description: "Use when choosing a Node, Bun, Deno, or browser adapter for filesystem, process, network, worker, or runtime lifecycle services."
 ---
 
@@ -66,4 +66,4 @@ Effect service graph across a worker boundary.
 - [@effect/platform-node](https://effect.website/docs/v4/api/platform-node)
 - [@effect/platform-browser](https://effect.website/docs/v4/api/platform-browser)
 - [FileSystem API](https://effect.website/docs/v4/api/effect/FileSystem)
-- [Effect platform source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/platform)
+- [Effect platform source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/platform)

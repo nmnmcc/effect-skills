@@ -1,6 +1,6 @@
 ---
 name: effect-schema
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when validating untrusted values, modeling structured domain variants, or defining reversible wire/domain codecs with Effect Schema."
 ---
 
@@ -77,4 +77,4 @@ transformation can be represented in JSON Schema.
 - [SchemaTransformation API](https://effect.website/docs/v4/api/effect/SchemaTransformation)
 - [JsonSchema API](https://effect.website/docs/v4/api/effect/JsonSchema)
 - [Effect Schema guide](https://effect.website/docs)
-- [Pinned Schema source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Schema.ts)
+- [Pinned Schema source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Schema.ts)

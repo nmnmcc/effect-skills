@@ -1,6 +1,6 @@
 ---
 name: effect-core
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when deciding where an Effect runs or how typed failures, defects, and interruption propagate; also for core v3-to-v4 migration decisions."
 ---
 
@@ -13,7 +13,7 @@ ExecutionPlan, Effectable, Function, and the run boundary.
 ## Version gate
 
 Read the project package.json and lockfile before giving code. These examples
-target the published `effect@4.0.0-rc.117`; npm's `latest` still selects v3.
+target the published `effect@4.0.0-rc.118`; npm's `latest` still selects v3.
 Do not combine v3-only examples such
 as Either, STM, or FiberRef with v4 code without an explicit migration.
 
@@ -108,5 +108,5 @@ or data decoding.
 - [Effect API](https://effect.website/docs/v4/api/effect/Effect)
 - [Cause API](https://effect.website/docs/v4/api/effect/Cause)
 - [Exit API](https://effect.website/docs/v4/api/effect/Exit)
-- [Effect source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Effect.ts)
+- [Effect source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Effect.ts)
 - [Effect v4 releases](https://github.com/Effect-TS/effect/releases)

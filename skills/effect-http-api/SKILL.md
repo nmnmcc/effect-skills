@@ -1,6 +1,6 @@
 ---
 name: effect-http-api
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when defining schema-backed HTTP endpoint contracts, implementing typed handlers, generating clients or OpenAPI, and applying API security middleware."
 ---
 
@@ -26,7 +26,7 @@ import {
   HttpApiEndpoint,
   HttpApiGroup,
   HttpApiSchema
-} from "effect/unstable/httpapi"
+} from "effect/http-api"
 
 const User = Schema.Struct({ id: Schema.String, name: Schema.String })
 const NotFound = Schema.Struct({ _tag: Schema.Literal("NotFound") }).pipe(
@@ -43,7 +43,7 @@ const Users = HttpApiGroup.make("users").add(getUser)
 const api = HttpApi.make("users-api").add(Users)
 ```
 
-This shape typechecks against rc.117; the `effect/unstable/httpapi` contract
+This shape typechecks against rc.118; the `effect/http-api` contract
 is unstable, so check declarations before upgrading.
 
 ## Implement and consume
@@ -74,6 +74,6 @@ test old clients with HttpApiTest.
 ## References
 
 - [Effect HTTP API modules](https://effect.website/docs/v4/api/effect)
-- [HttpApi source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.117/packages/effect/src/unstable/httpapi)
-- [OpenAPI API](https://effect.website/docs/v4/api/effect/unstable/httpapi/OpenApi)
+- [HttpApi source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/http-api)
+- [OpenAPI API](https://effect.website/docs/v4/api/effect/http-api/OpenApi)
 - [Effect documentation](https://effect.website/docs)

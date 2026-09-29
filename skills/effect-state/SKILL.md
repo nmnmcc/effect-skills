@@ -1,6 +1,6 @@
 ---
 name: effect-state
-compatibility: "Examples target effect@4.0.0-rc.117; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
 description: "Use when selecting atomic in-process state, effectful updates, subscriptions, or replaceable scoped state for concurrent Effect programs."
 ---
 
@@ -80,4 +80,4 @@ resource, keep the ScopedRef in the same Scope as the resource owner.
 - [SubscriptionRef API](https://effect.website/docs/v4/api/effect/SubscriptionRef)
 - [ScopedRef API](https://effect.website/docs/v4/api/effect/ScopedRef)
 - [Effect documentation](https://effect.website/docs)
-- [Pinned Ref source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.117/packages/effect/src/Ref.ts)
+- [Pinned Ref source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Ref.ts)
