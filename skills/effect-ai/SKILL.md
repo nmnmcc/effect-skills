@@ -1,6 +1,6 @@
 ---
 name: effect-ai
-compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; align @effect/* packages. Effect v3 requires migration."
 description: "Use when integrating an AI model or provider with Effect, generating structured output, exposing typed tools, managing chat state, or consuming streamed responses."
 ---
 
@@ -34,12 +34,12 @@ output as trusted JSON.
 ## Version gate
 
 Read `package.json` and the lockfile before choosing an example. This skill
-targets the published `4.0.0-rc.118` and its `effect/ai` modules;
-provider layers are unstable. npm `latest` still resolves
-Effect v3 (for example `3.22.x`), where these imports and signatures are not a
-drop-in match. If the project is on v3, use its pinned documentation or make an
-explicit upgrade decision; do not silently mix v4 `effect/ai` examples into a v3
-program. Keep `effect` and every `@effect/ai-*` provider on compatible versions.
+targets the published `4.0.0` and its `effect/ai` modules;
+provider layers are unstable. Effect v3 uses different imports and signatures,
+so these are not a drop-in match. If the project is on v3, use its pinned
+documentation or make an explicit upgrade decision; do not silently mix v4
+`effect/ai` examples into a v3 program. Keep `effect` and every
+`@effect/ai-*` provider on compatible versions.
 
 ## Design workflow
 
@@ -200,6 +200,6 @@ layer explicit so its credentials and transport requirements remain visible.
 - [Tool API](https://effect.website/docs/v4/api/effect/ai/Tool)
 - [Toolkit API](https://effect.website/docs/v4/api/effect/ai/Toolkit)
 - [OpenAI provider](https://effect.website/docs/v4/api/ai-openai)
-- [Effect AI source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/ai)
-- [Pinned LanguageModel source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/ai/LanguageModel.ts)
-- [AI examples](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/ai-docs/src/71_ai)
+- [Effect AI source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/ai)
+- [Pinned LanguageModel source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/ai/LanguageModel.ts)
+- [AI examples](https://github.com/Effect-TS/effect/tree/effect%404.0.0/ai-docs/src/71_ai)

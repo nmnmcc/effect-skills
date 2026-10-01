@@ -1,6 +1,6 @@
 ---
 name: effect-http-api
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when defining schema-backed HTTP endpoint contracts, implementing typed handlers, generating clients or OpenAPI, and applying API security middleware."
 ---
 
@@ -43,7 +43,7 @@ const Users = HttpApiGroup.make("users").add(getUser)
 const api = HttpApi.make("users-api").add(Users)
 ```
 
-This shape typechecks against rc.118; the `effect/http-api` contract
+This shape typechecks against 4.0.0; the `effect/http-api` contract
 is unstable, so check declarations before upgrading.
 
 ## Implement and consume
@@ -69,11 +69,11 @@ test old clients with HttpApiTest.
 - Putting internal exception messages in a public error schema.
 - Defining authorization in middleware but forgetting one endpoint group.
 - Generating an OpenAPI document that omits a middleware or security scheme.
-- Importing v3 http-api examples into a v4 release-candidate project.
+- Importing v3 http-api examples into a v4 project.
 
 ## References
 
 - [Effect HTTP API modules](https://effect.website/docs/v4/api/effect)
-- [HttpApi source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/http-api)
+- [HttpApi source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/http-api)
 - [OpenAPI API](https://effect.website/docs/v4/api/effect/http-api/OpenApi)
 - [Effect documentation](https://effect.website/docs)

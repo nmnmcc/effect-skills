@@ -1,13 +1,13 @@
 ---
 name: effect-cluster
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when routing stateful messages by entity ID across processes with Effect sharding, runners, singleton ownership, or cluster-backed workflows."
 ---
 
 # Effect cluster
 
 Use `effect/cluster` when a message needs an entity owner chosen by
-sharding. An ordinary RPC request does not need a cluster. This rc.118 API is
+sharding. An ordinary RPC request does not need a cluster. This v4 API is
 unstable and incompatible with v3 cluster package examples.
 
 ## Entity and deployment boundary
@@ -53,4 +53,4 @@ Workflow owns durable executions, while Cluster only assigns entity owners.
 ## Sources
 
 - [Entity API](https://effect.website/docs/v4/api/effect/cluster/Entity)
-- [Pinned Entity source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/cluster/Entity.ts)
+- [Pinned Entity source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/cluster/Entity.ts)

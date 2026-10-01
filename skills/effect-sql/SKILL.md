@@ -1,6 +1,6 @@
 ---
 name: effect-sql
-compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; align @effect/* packages. Effect v3 requires migration."
 description: "Use when selecting an Effect SQL adapter or implementing parameterized queries, transactions, migrations, and schema-checked database rows."
 ---
 
@@ -67,6 +67,6 @@ versions monotonic and test rollback or forward-only policy before production.
 ## References
 
 - [Effect SQL modules](https://effect.website/docs/v4/api/effect)
-- [Effect SQL source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/sql)
-- [SQL packages](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/sql)
+- [Effect SQL source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/sql)
+- [SQL packages](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/sql)
 - [Effect Schema API](https://effect.website/docs/v4/api/effect/Schema)

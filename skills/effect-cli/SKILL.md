@@ -1,6 +1,6 @@
 ---
 name: effect-cli
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when building a typed command-line program with Effect: parse flags and arguments, run command handlers, prompt interactively, or manage help and exit behavior."
 ---
 
@@ -9,7 +9,7 @@ description: "Use when building a typed command-line program with Effect: parse 
 Use `effect/cli` for command trees and typed flags. Keep parsing in
 `Command` and `Flag`, domain operations in services, and process signals and
 exit codes at the platform run boundary. Check the consuming project's
-installed version: this entrypoint exists in v4 rc.118, not v3.
+installed version: this entrypoint exists in v4, not v3.
 
 ## A command boundary
 
@@ -40,4 +40,4 @@ with CLI handlers.
 ## Sources
 
 - [CLI API](https://effect.website/docs/v4/api/effect/cli/Command)
-- [Pinned Command source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/cli/Command.ts)
+- [Pinned Command source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/cli/Command.ts)

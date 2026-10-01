@@ -1,6 +1,6 @@
 ---
 name: effect-data
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when choosing a pure representation for absence, failure values, variants, equality, or immutable collections without running an Effect."
 ---
 
@@ -62,6 +62,11 @@ Brands and refinements should be created at the boundary that proves them.
 Keep the constructor private to a module when an invariant must not be forged
 by callers.
 
+In stable 4.0.0, `Array.partition`, `Chunk.partition`, `Effect.partition`,
+`Record.partition`, their `separate` helpers, and `Option.partitionMap` return
+`[successes, failures]`. When porting rc.118 code, update tuple destructuring
+before applying either result.
+
 ## Common mistakes
 
 - Using Option as a catch-all error channel.
@@ -78,4 +83,4 @@ by callers.
 - [HashMap API](https://effect.website/docs/v4/api/effect/HashMap)
 - [Match API](https://effect.website/docs/v4/api/effect/Match)
 - [Effect documentation](https://effect.website/docs)
-- [Pinned Option source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Option.ts)
+- [Pinned Option source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/Option.ts)

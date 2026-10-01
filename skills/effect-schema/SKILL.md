@@ -1,6 +1,6 @@
 ---
 name: effect-schema
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when validating untrusted values, modeling structured domain variants, or defining reversible wire/domain codecs with Effect Schema."
 ---
 
@@ -52,6 +52,12 @@ SchemaIssue are useful when building a custom error renderer. JsonSchema and
 StandardSchema are interoperability boundaries; do not assume every Effect
 transformation can be represented in JSON Schema.
 
+Stable 4.0.0 makes `Schema.brand` type-only and accepts one concrete brand
+identifier per call. Apply it repeatedly for multiple brands, pass an enum
+member rather than its string value, and reapply it after rebuilding a
+`SchemaRepresentation`; `Schema.fromBrand` still carries the constructor's
+checks.
+
 ## Review checklist
 
 - Is unknown input decoded exactly once?
@@ -68,7 +74,7 @@ transformation can be represented in JSON Schema.
 - Treating a parse issue as an exception and losing its path information.
 - Generating JSON Schema for a schema whose transformation cannot be
   expressed in JSON Schema.
-- Copying v3 Schema constructors into a v4 release-candidate project.
+- Copying v3 Schema constructors into a v4 project.
 
 ## References
 
@@ -77,4 +83,4 @@ transformation can be represented in JSON Schema.
 - [SchemaTransformation API](https://effect.website/docs/v4/api/effect/SchemaTransformation)
 - [JsonSchema API](https://effect.website/docs/v4/api/effect/JsonSchema)
 - [Effect Schema guide](https://effect.website/docs)
-- [Pinned Schema source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Schema.ts)
+- [Pinned Schema source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/Schema.ts)

@@ -1,6 +1,6 @@
 ---
 name: effect-http
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when implementing transport-level HTTP clients, servers, middleware, request bodies, routing, or connection lifecycles in Effect."
 ---
 
@@ -72,4 +72,4 @@ context intentionally.
 - [Effect HTTP modules](https://effect.website/docs/v4/api/effect)
 - [HttpClient API](https://effect.website/docs/v4/api/effect/http/HttpClient)
 - [HttpServer API](https://effect.website/docs/v4/api/effect/http/HttpServer)
-- [Effect HTTP source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/http)
+- [Effect HTTP source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/http)

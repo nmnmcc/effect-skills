@@ -1,6 +1,6 @@
 ---
 name: effect-services
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when injecting application capabilities, composing dependency Layers, or owning startup, shutdown, and scoped resources in Effect."
 ---
 
@@ -13,9 +13,9 @@ doubles.
 
 ## Version gate
 
-Confirm whether the project uses v3 or the published `4.0.0-rc.118` before
+Confirm whether the project uses v3 or the published `4.0.0` before
 copying a Tag or Layer signature. Read the installed declarations; npm's
-`latest` is v3 and upstream `main` is newer than the pinned release.
+`latest` is v4 and upstream `main` may be newer than the pinned release.
 
 ## Design the service first
 
@@ -101,4 +101,4 @@ when an @effect/platform-*, SQL, HTTP, or AI package already owns the Layer.
 - [Scope API](https://effect.website/docs/v4/api/effect/Scope)
 - [ManagedRuntime API](https://effect.website/docs/v4/api/effect/ManagedRuntime)
 - [Effect documentation](https://effect.website/docs)
-- [Pinned Layer source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Layer.ts)
+- [Pinned Layer source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/Layer.ts)

@@ -1,6 +1,6 @@
 ---
 name: effect-reactivity
-compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; align @effect/* packages. Effect v3 requires migration."
 description: "Use when connecting Effect services and state to reactive atoms, React, Solid, or Vue with effect/reactivity and @effect/atom-* packages."
 ---
 
@@ -63,9 +63,9 @@ long-lived registries in a provider Layer, not in module-level state.
 
 ## References
 
-- [Effect reactivity source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/reactivity)
+- [Effect reactivity source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/reactivity)
 - [Atom API](https://effect.website/docs/v4/api/effect/reactivity/Atom)
 - [AtomRegistry API](https://effect.website/docs/v4/api/effect/reactivity/AtomRegistry)
-- [React bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/atom/react)
-- [Solid bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/atom/solid)
-- [Vue bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/atom/vue)
+- [React bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/atom/react)
+- [Solid bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/atom/solid)
+- [Vue bindings](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/atom/vue)

@@ -1,6 +1,6 @@
 ---
 name: effect-streams
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when processing incremental or unbounded values with backpressure, batching, merging, sinks, and resource-safe consumption."
 ---
 
@@ -92,4 +92,4 @@ pull is suspended and verify that a scoped source releases its resource.
 - [Sink API](https://effect.website/docs/v4/api/effect/Sink)
 - [Take API](https://effect.website/docs/v4/api/effect/Take)
 - [Effect documentation](https://effect.website/docs)
-- [Pinned Stream source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/Stream.ts)
+- [Pinned Stream source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/Stream.ts)

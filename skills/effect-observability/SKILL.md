@@ -1,6 +1,6 @@
 ---
 name: effect-observability
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when adding structured logs, metrics, tracing, error reporting, OTLP, Prometheus, or OpenTelemetry Layers to an Effect application."
 ---
 
@@ -75,5 +75,5 @@ labels, traces, or error reports.
 - [Logger API](https://effect.website/docs/v4/api/effect/Logger)
 - [Metric API](https://effect.website/docs/v4/api/effect/Metric)
 - [Tracer API](https://effect.website/docs/v4/api/effect/Tracer)
-- [Effect observability source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/observability)
-- [OpenTelemetry package](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/opentelemetry)
+- [Effect observability source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/observability)
+- [OpenTelemetry package](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/opentelemetry)

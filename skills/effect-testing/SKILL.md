@@ -1,6 +1,6 @@
 ---
 name: effect-testing
-compatibility: "Examples target effect@4.0.0-rc.118; align @effect/* packages. Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; align @effect/* packages. Effect v3 requires migration."
 description: "Use when testing Effect behavior with deterministic Layers or clocks, including typed failures, interruption, finalizers, and examples."
 ---
 
@@ -44,7 +44,7 @@ const result = test.pipe(Effect.provide(TestClock.layer()))
 ```
 
 Confirm the exact testing import and assertion helpers for the installed v4
-release candidate. The test should advance TestClock instead of waiting on a
+stable release. The test should advance TestClock instead of waiting on a
 real timer.
 
 ## Vitest integration
@@ -57,6 +57,11 @@ Scope, concurrency, and service behavior.
 TestConsole is useful for asserting structured output without writing to the
 developer terminal. TestSchema should exercise the accepted, rejected, and
 transformed shapes rather than snapshotting an opaque error string.
+
+In stable 4.0.0, rename `TestSchema.verifyLosslessTransformation` to
+`verifyRoundTrip`. `succeedEffect`, `failEffect`, and `verifyRoundTripEffect`
+allow schema assertions to use the calling Effect's services and interruption;
+check the installed declaration before depending on these unstable helpers.
 
 ## Review traps
 
@@ -76,4 +81,4 @@ transformed shapes rather than snapshotting an opaque error string.
 - [TestSchema API](https://effect.website/docs/v4/api/effect/testing/TestSchema)
 - [@effect/vitest](https://effect.website/docs/v4/api/vitest)
 - [Effect testing guide](https://effect.website/docs)
-- [Pinned TestClock source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/testing/TestClock.ts)
+- [Pinned TestClock source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/testing/TestClock.ts)

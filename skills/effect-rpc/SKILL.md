@@ -1,6 +1,6 @@
 ---
 name: effect-rpc
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when defining typed remote procedures and serialization across sockets, workers, or HTTP; for resource-oriented endpoints use HTTP API."
 ---
 
@@ -31,7 +31,7 @@ const GetUser = Rpc.make("GetUser", {
 const Users = RpcGroup.make(GetUser)
 ```
 
-The exact constructor signatures are release-candidate APIs; inspect the
+The exact constructor signatures are unstable APIs; inspect the
 installed declarations. The durable design is the schema contract and its
 compatibility policy, not a copied helper call.
 
@@ -65,7 +65,7 @@ traces or provider SDK errors through a public Rpc error schema.
 
 ## References
 
-- [Effect RPC source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/rpc)
+- [Effect RPC source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/rpc)
 - [Rpc API](https://effect.website/docs/v4/api/effect)
-- [Socket source](https://github.com/Effect-TS/effect/tree/effect%404.0.0-rc.118/packages/effect/src/socket)
+- [Socket source](https://github.com/Effect-TS/effect/tree/effect%404.0.0/packages/effect/src/socket)
 - [Effect Schema API](https://effect.website/docs/v4/api/effect/Schema)

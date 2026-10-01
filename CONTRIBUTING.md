@@ -1,10 +1,11 @@
 # Contributing
 
-Use the published `effect@4.0.0-rc.118` package and its pinned
+Use the stable `effect@4.0.0` package and its pinned
 [source policy](docs/version-policy.md) when changing an example. Compare
 both the installed export map and declarations before naming a symbol;
 `main` may contain unreleased import paths. Keep any added `@effect/*`
-integrations on the same exact RC version in `package.json` and the lockfile.
+integrations on the same exact `4.0.0` version in `package.json` and the
+lockfile.
 
 ## Skill design
 
@@ -16,8 +17,8 @@ specific API page and to source at the release tag. Keep the skill usable
 when it alone is installed: local references must remain inside its folder.
 
 Every skill contains at least one standalone `ts` or `tsx` example. All such
-fences are independently typechecked against rc.118; avoid fragment-only
-imports or implicit context from a previous fence. Call a snippet
+fences are independently typechecked against the pinned stable release; avoid
+fragment-only imports or implicit context from a previous fence. Call a snippet
 "typechecked" unless a runtime test actually exercises it. Add a scoped
 integration test for cross-module behavior rather than implying that a type
 check proves network, persistence, or cleanup behavior.

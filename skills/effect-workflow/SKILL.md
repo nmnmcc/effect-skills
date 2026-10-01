@@ -1,6 +1,6 @@
 ---
 name: effect-workflow
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when an Effect operation must survive restarts or suspension: define durable workflows, activities, timers, signals, queues, replay, and idempotency."
 ---
 
@@ -8,7 +8,7 @@ description: "Use when an Effect operation must survive restarts or suspension: 
 
 Use `effect/workflow` when a named execution needs an engine-owned
 identity and result across process lifetimes. A normal Effect or forked fiber
-does not gain durability from a retry policy. v4 rc.118 workflow APIs are
+does not gain durability from a retry policy. v4 workflow APIs are
 unstable; read the installed declarations before upgrading or porting v3.
 
 ## Choose an engine-visible boundary
@@ -58,4 +58,4 @@ than a workflow execution log.
 
 - [Workflow API](https://effect.website/docs/v4/api/effect/workflow/Workflow)
 - [Activity API](https://effect.website/docs/v4/api/effect/workflow/Activity)
-- [Pinned Workflow source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/workflow/Workflow.ts)
+- [Pinned Workflow source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/workflow/Workflow.ts)

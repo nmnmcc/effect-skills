@@ -1,6 +1,6 @@
 ---
 name: effect-persistence
-compatibility: "Examples target effect@4.0.0-rc.118; Effect v3 requires migration."
+compatibility: "Examples target effect@4.0.0; Effect v3 requires migration."
 description: "Use when choosing an Effect-backed key-value store, persisted cache or queue, shared rate limiter, TTL, or storage adapter across restarts."
 ---
 
@@ -10,7 +10,7 @@ Use `effect/persistence` for key-value operations, encoded cached
 exits, persisted background queues, and shared rate limits. SQL owns relational
 queries and transactions; Ref owns in-process state. A memory store is useful
 for tests but does not survive a restart or coordinate processes. These v4
-rc.118 modules are unstable and do not share v3 import paths.
+modules are unstable and do not share v3 import paths.
 
 ## Provide the store at the application boundary
 
@@ -40,4 +40,4 @@ engine or worker queues but defines the durable execution contract separately.
 
 - [KeyValueStore API](https://effect.website/docs/v4/api/effect/persistence/KeyValueStore)
 - [PersistedQueue API](https://effect.website/docs/v4/api/effect/persistence/PersistedQueue)
-- [Pinned KeyValueStore source](https://github.com/Effect-TS/effect/blob/effect%404.0.0-rc.118/packages/effect/src/persistence/KeyValueStore.ts)
+- [Pinned KeyValueStore source](https://github.com/Effect-TS/effect/blob/effect%404.0.0/packages/effect/src/persistence/KeyValueStore.ts)

@@ -8,12 +8,12 @@ Effect release.
 
 ## Version
 
-The code targets **`effect@4.0.0-rc.118`**, the published v4 release candidate
-at upstream commit `ad61db80efd52637e2901c5ee56b9e0fb4e8ac48`. Its
-`@effect/*` integrations are pinned to the same version. npm `latest` still
-resolves to v3; do not apply these imports to a v3 project without an explicit
-migration. See the [version and source policy](docs/version-policy.md) for
-published export paths and compatibility limits.
+The code targets the stable **`effect@4.0.0`** release at upstream commit
+`67ba4e46a11ccda0b6761578bfd22c04ae00167d`. Its `@effect/*` integrations are
+pinned to the same version. Effect v4 is now the npm `latest` line; do not
+apply these imports to a v3 project without an explicit migration. See the
+[version and source policy](docs/version-policy.md) for published export paths,
+stability annotations, and compatibility limits.
 
 ## Install the skills you need
 
